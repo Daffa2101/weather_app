@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:weather_app/features/weather/presentation/pages/weather_list_page.dart';
 import 'package:weather_app/services/navigations/_navigations.dart';
 
 final nav = NavigationService();
@@ -18,7 +19,7 @@ class App extends StatelessWidget {
       title: 'Weather App',
       debugShowCheckedModeBanner: false,
       navigatorKey: nav.navigatorKey,
-      home: const Scaffold(),
+      home: const WeatherListPage(),
     );
   }
 }
