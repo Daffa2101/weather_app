@@ -1,4 +1,4 @@
 class PreferencesKeys {
-  static const lastForecastFetched = 'x-last-forecast-fetched';
-  static const lastLocationFetched = 'x-last-location-fetched';
+  static const lastForecastFetched = 'w-last-forecast-fetched';
+  static const lastLocationFetched = 'w-last-location-fetched';
 }

@@ -7,10 +7,12 @@ class WeatherState extends Equatable {
   final String? errorMsg;
   final List<WeatherModel>? weathers;
   final String? location;
+  final bool isOffline;
   const WeatherState({
     this.isLoading = true,
     this.isLoaded = false,
     this.isError = false,
+    this.isOffline = false,
     this.errorMsg,
     this.weathers,
     this.location,
@@ -20,6 +22,7 @@ class WeatherState extends Equatable {
     bool? isLoading,
     bool? isLoaded,
     bool? isError,
+    bool? isOffline,
     String? errorMsg,
     List<WeatherModel>? weathers,
     String? location,
@@ -30,14 +33,11 @@ class WeatherState extends Equatable {
       isError: isError ?? this.isError,
       errorMsg: errorMsg ?? this.errorMsg,
       weathers: weathers ?? this.weathers,
+      isOffline: isOffline ?? this.isOffline,
       location: location ?? this.location,
     );
   }
 
   @override
-  List<Object> get props => [
-        isLoading,
-        isLoaded,
-        isError,
-      ];
+  List<Object> get props => [isLoading, isLoaded, isError, isOffline];
 }

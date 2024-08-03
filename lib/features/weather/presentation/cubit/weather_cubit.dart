@@ -38,6 +38,35 @@ class WeatherCubit extends Cubit<WeatherState> {
 
     await res.fold(
       (left) {
+        if (left is NetworkFailure &&
+            PrefService.getStringList(
+                  PreferencesKeys.lastForecastFetched,
+                ) !=
+                null) {
+          List<String>? weathersJson =
+              PrefService.getStringList(PreferencesKeys.lastForecastFetched);
+
+          final weathers = weathersJson!
+              .map(
+                (json) => WeatherModel.fromJson(
+                  jsonDecode(json),
+                ),
+              )
+              .toList();
+
+          final location =
+              PrefService.getString(PreferencesKeys.lastLocationFetched);
+          emit(
+            state.copyWith(
+              isOffline: true,
+              isLoading: false,
+              isLoaded: true,
+              weathers: weathers,
+              location: location,
+            ),
+          );
+          return;
+        }
         emit(
           state.copyWith(
             isLoading: false,
@@ -48,6 +77,14 @@ class WeatherCubit extends Cubit<WeatherState> {
         );
       },
       (right) {
+        PrefService.saveListOfString(
+          PreferencesKeys.lastForecastFetched,
+          right.data.map((weather) => jsonEncode(weather.toJson())).toList(),
+        );
+
+        PrefService.saveString(PreferencesKeys.lastLocationFetched,
+            query ?? 'National Monument (Monas)');
+
         emit(
           state.copyWith(
             isLoading: false,
