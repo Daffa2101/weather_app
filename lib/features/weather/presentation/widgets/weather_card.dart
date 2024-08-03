@@ -1,7 +1,16 @@
 part of '_widgets.dart';
 
 class WeatherCard extends StatelessWidget {
+  final String time;
+  final String condition;
+  final double temp;
+  final String icon;
+
   const WeatherCard({
+    required this.time,
+    required this.condition,
+    required this.temp,
+    required this.icon,
     super.key,
   });
 
@@ -20,23 +29,30 @@ class WeatherCard extends StatelessWidget {
             width: 1,
             color: Colors.grey.withOpacity(0.5),
           )),
-      child: const Row(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Icon(Icons.sunny),
+          Image.network(
+            'https://openweathermap.org/img/wn/$icon@2x.png',
+            errorBuilder: (context, error, stackTrace) {
+              return const Text(
+                'No Connection',
+              );
+            },
+          ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Tue, 22 Jul 2022, 03:00 PM ',
+                time,
                 style: FontTheme.subHeader3,
               ),
               Text(
-                'Sunny',
+                condition,
                 style: FontTheme.body4,
               ),
               Text(
-                'Temp: 29 °C',
+                'Temp: $temp °C',
                 style: FontTheme.body4,
               )
             ],

@@ -1,7 +1,9 @@
 part of '_widgets.dart';
 
 class SearchSection extends StatefulWidget {
+  final WeatherCubit cubit;
   const SearchSection({
+    required this.cubit,
     super.key,
   });
 
@@ -37,10 +39,15 @@ class _SearchSectionState extends State<SearchSection> {
             color: Colors.white,
           ),
           child: IconButton(
-              icon: const Icon(
-                Icons.search,
-              ),
-              onPressed: () {}),
+            icon: const Icon(
+              Icons.search,
+            ),
+            onPressed: () => _searchController.text.isNotEmpty
+                ? widget.cubit.fetchForecastData(
+                    _searchController.text,
+                  )
+                : widget.cubit.fetchForecastData(null),
+          ),
         )
       ],
     );

@@ -3,15 +3,22 @@ import 'package:weather_app/app.dart';
 import 'package:weather_app/core/bases/widgets/layouts/w_scaffold.dart';
 import 'package:weather_app/core/bases/widgets/molecules/w_appbar.dart';
 import 'package:weather_app/core/themes/_themes.dart';
+import 'package:weather_app/features/weather/data/models/weather_model.dart';
+import 'package:weather_app/services/date_service.dart';
 
 class WeatherDetailPage extends StatelessWidget {
+  final WeatherModel weather;
+  final String location;
   const WeatherDetailPage({
+    required this.weather,
+    required this.location,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
 
     return WScaffold(
       padding: false,
@@ -50,12 +57,12 @@ class WeatherDetailPage extends StatelessWidget {
               child: Center(
                 child: Column(
                   children: [
-                    const Text(
-                      'Monas',
+                    Text(
+                      location,
                       style: FontTheme.header2,
                     ),
-                    const Text(
-                      '',
+                    Text(
+                      DateService.formatDate(weather.time),
                       style: FontTheme.subHeader2,
                       textAlign: TextAlign.center,
                     ),
@@ -66,67 +73,88 @@ class WeatherDetailPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Text(
-                          '29°C',
+                          '${weather.temp}°C',
                           style: FontTheme.subHeader1.copyWith(fontSize: 56),
                         ),
-                        const Icon(
-                          Icons.sunny_snowing,
-                          size: 56,
+                        Image.network(
+                          'https://openweathermap.org/img/wn/${weather.icon}@2x.png',
                         ),
                       ],
                     ),
                     const SizedBox(
                       height: 12,
                     ),
-                    const Text(
-                      'Clouds (little cloud)',
+                    Text(
+                      '${weather.main} (${weather.description})',
                       style: FontTheme.subHeader3,
                     ),
                     const SizedBox(
                       height: 36,
                     ),
-                    const Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         WeatherDetailsDataCard(
                           title: 'Temp (min)',
-                          data: '29°C',
+                          data: '${weather.tempMin}°C',
                         ),
                         WeatherDetailsDataCard(
                           title: 'Temp (max)',
-                          data: '29°C',
+                          data: '${weather.tempMax}°C',
                         ),
                       ],
                     ),
                     const SizedBox(
                       height: 16,
                     ),
-                    const Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         WeatherDetailsDataCard(
                           title: 'Pressure',
-                          data: '29 hPa',
+                          data: '${weather.tempMin} hPa',
                         ),
                         WeatherDetailsDataCard(
                           title: 'Sea Level',
-                          data: '20 hPa',
+                          data: '${weather.tempMin} hPa',
                         ),
                       ],
                     ),
                     const SizedBox(
                       height: 16,
                     ),
-                    const Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        WeatherDetailsDataCard(
-                          title: 'Ground level',
-                          data: '200 hPa',
+                        Container(
+                          width: 0.4 * width,
+                          padding:
+                              const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.grey.withOpacity(
+                                  0.5,
+                                ),
+                              ),
+                              borderRadius: BorderRadius.circular(
+                                12,
+                              )),
+                          child: Column(
+                            children: [
+                              const Text(
+                                'Ground Level',
+                                style: FontTheme.body4,
+                              ),
+                              Text(
+                                '${weather.grndLevel} hPa',
+                                style: FontTheme.header4,
+                              ),
+                            ],
+                          ),
                         ),
                         WeatherDetailsDataCard(
                           title: 'Humidity',
-                          data: '55 %',
+                          data: '${weather.humidity} %',
                         ),
                       ],
                     ),
