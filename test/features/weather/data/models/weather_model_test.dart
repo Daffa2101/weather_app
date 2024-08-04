@@ -41,7 +41,7 @@ void main() {
       final result = testWeatherModel.toJson();
 
       final expectedJson = {
-        'dt': 172274040,
+        'dt': 1722740400,
         'weather': [
           {
             'id': 100,

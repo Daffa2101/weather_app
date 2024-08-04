@@ -11,7 +11,6 @@ import '../../../../helpers/test_helper.mocks.dart';
 void main() {
   late GetWeatherForecastsUseCase getWeatherForecastsUseCase;
   late MockWeatherRepository mockWeatherRepository;
-
   setUp(
     () {
       mockWeatherRepository = MockWeatherRepository();
