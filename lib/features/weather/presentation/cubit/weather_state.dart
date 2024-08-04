@@ -5,7 +5,7 @@ class WeatherState extends Equatable {
   final bool isLoaded;
   final bool isError;
   final String? errorMsg;
-  final List<WeatherModel>? weathers;
+  final List<WeatherEntity>? weathers;
   final String? location;
   final bool isOffline;
   const WeatherState({
@@ -24,7 +24,7 @@ class WeatherState extends Equatable {
     bool? isError,
     bool? isOffline,
     String? errorMsg,
-    List<WeatherModel>? weathers,
+    List<WeatherEntity>? weathers,
     String? location,
   }) {
     return WeatherState(

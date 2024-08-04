@@ -3,11 +3,11 @@ import 'package:weather_app/app.dart';
 import 'package:weather_app/core/bases/widgets/layouts/w_scaffold.dart';
 import 'package:weather_app/core/bases/widgets/molecules/w_appbar.dart';
 import 'package:weather_app/core/themes/_themes.dart';
-import 'package:weather_app/features/weather/data/models/weather_model.dart';
+import 'package:weather_app/features/weather/domain/entities/weather_entity.dart';
 import 'package:weather_app/services/date_service.dart';
 
 class WeatherDetailPage extends StatelessWidget {
-  final WeatherModel weather;
+  final WeatherEntity weather;
   final String location;
   const WeatherDetailPage({
     required this.weather,
@@ -128,8 +128,8 @@ class WeatherDetailPage extends StatelessWidget {
                       children: [
                         Container(
                           width: 0.4 * width,
-                          padding:
-                              const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 5),
                           decoration: BoxDecoration(
                               border: Border.all(
                                 color: Colors.grey.withOpacity(

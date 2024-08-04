@@ -1,7 +1,7 @@
 part of '_widgets.dart';
 
 class WeatherListView extends StatelessWidget {
-  final List<WeatherModel> weathers;
+  final List<WeatherEntity> weathers;
   final String location;
   const WeatherListView({
     required this.weathers,

@@ -34,26 +34,17 @@ class WeatherModel extends WeatherEntity {
         humidity: (json['main']['humidity'] as num).toDouble(),
       );
 
-  Map<String, dynamic> toJson() {
-    return {
-      'dt': time.millisecondsSinceEpoch ~/ 1000,
-      'weather': [
-        {
-          'id': id,
-          'main': main,
-          'description': description,
-          'icon': icon,
-        }
-      ],
-      'main': {
-        'temp': temp,
-        'temp_min': tempMin,
-        'temp_max': tempMax,
-        'pressure': pressure.toInt(),
-        'sea_level': seaLevel.toInt(),
-        'grnd_level': grndLevel.toInt(),
-        'humidity': humidity.toInt(),
-      }
-    };
-  }
+  WeatherEntity toEntity() => WeatherEntity(
+      time: time,
+      id: id,
+      main: main,
+      description: description,
+      icon: icon,
+      temp: temp,
+      tempMin: tempMin,
+      tempMax: tempMax,
+      pressure: pressure,
+      seaLevel: seaLevel,
+      grndLevel: grndLevel,
+      humidity: humidity);
 }

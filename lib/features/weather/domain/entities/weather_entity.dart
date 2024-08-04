@@ -44,4 +44,27 @@ class WeatherEntity extends Equatable {
         grndLevel,
         humidity,
       ];
+
+  Map<String, dynamic> toJson() {
+    return {
+      'dt': time.millisecondsSinceEpoch ~/ 1000,
+      'weather': [
+        {
+          'id': id,
+          'main': main,
+          'description': description,
+          'icon': icon,
+        }
+      ],
+      'main': {
+        'temp': temp,
+        'temp_min': tempMin,
+        'temp_max': tempMax,
+        'pressure': pressure.toInt(),
+        'sea_level': seaLevel.toInt(),
+        'grnd_level': grndLevel.toInt(),
+        'humidity': humidity.toInt(),
+      }
+    };
+  }
 }

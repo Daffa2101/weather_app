@@ -8,6 +8,7 @@ import 'package:weather_app/core/constants/pref_keys.dart';
 
 import 'package:weather_app/core/errors/failure.dart';
 import 'package:weather_app/features/weather/data/models/weather_model.dart';
+import 'package:weather_app/features/weather/domain/entities/weather_entity.dart';
 import 'package:weather_app/features/weather/domain/usecases/_usecase.dart';
 import 'package:weather_app/services/pref_service.dart';
 
