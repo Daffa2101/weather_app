@@ -15,6 +15,8 @@ This project is a weather forecast application built using Flutter and OpenWeath
 - Fetches weather forecast data from a remote API
 - Displays weather data in a user-friendly format
 - Supports searching for weather by city name
+- Supports offline by cachinng last fetched data
+- Unit test for models, usecase, and cubit
 
 ## Installation 
 
