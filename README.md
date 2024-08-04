@@ -1,16 +1,43 @@
-# weather_app
+# Weather Forecast App
 
-A new Flutter project.
+This project is a weather forecast application built using Flutter and OpenWeatherAPI. It retrieves weather data from a remote API and displays it to the user.
 
-## Getting Started
+## Table of Contents
 
-This project is a starting point for a Flutter application.
+- [Features](#features)
+- [Installation](#installation)
+- [Running the App](#running-the-app)
+- [Testing](#testing)
+- [Dependencies](#dependencies)
 
-A few resources to get you started if this is your first Flutter project:
+## Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Fetches weather forecast data from a remote API
+- Displays weather data in a user-friendly format
+- Supports searching for weather by city name
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Installation 
+
+ - Clone the repository ```git clone https://github.com/Daffa2101/weather_app.git```
+ - No need to update the Api Key
+
+## Running the App
+
+- Open terminal
+- Run ```flutter pub get```
+- Run ```dart run build_runner build --delete-conflicting-outputs```
+- Start running the app from main.dart
+
+## Testing
+- Open terminal
+- Run ```flutter test```
+
+## Dependencies Choices
+ - BloC, saya menggunakan bloc karena telah familiar dengan state management ini. Pada app ini saya menggunakan cubit. Saya merasa dengan menggunakan bloc penulisan logika bisnis menjadi lebih clean.
+ 
+ - Shared Preferences, saya menggunakan shared preferences sebagai local directory simple untuk membantu dalam menyimpan last fetched data sehingga app dapat berjalan secara offline. 
+
+ - Dio, saya memilih menggunakan Dio karena dio menyediakan kemudahan dalam mengelola error-error yang mungkin terjadi ketia proses pemanggilan API.
+
+
+
