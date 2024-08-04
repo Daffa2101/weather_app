@@ -50,6 +50,7 @@ app.*.map.json
 *.gen.dart
 *.freezed.dart
 *.config.dart
+*.mocks.dart
 
 # Environment related
 *.env

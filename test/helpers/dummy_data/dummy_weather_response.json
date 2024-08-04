@@ -1,0 +1,36 @@
+{
+    "dt": 1722740400,
+    "main": {
+        "temp": 29,
+        "feels_like": 29,
+        "temp_min": 29,
+        "temp_max": 29,
+        "pressure": 29,
+        "sea_level": 29,
+        "grnd_level": 29,
+        "humidity": 29,
+        "temp_kf": -2.27
+    },
+    "weather": [
+        {
+            "id": 100,
+            "main": "Clouds",
+            "description": "little cloud",
+            "icon": "10d"
+        }
+    ],
+    "clouds": {
+        "all": 100
+    },
+    "wind": {
+        "speed": 1.8,
+        "deg": 320,
+        "gust": 2.96
+    },
+    "visibility": 10000,
+    "pop": 0,
+    "sys": {
+        "pod": "n"
+    },
+    "dt_txt": "2024-08-04 03:00:00"
+}

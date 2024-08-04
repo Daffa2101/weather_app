@@ -23,6 +23,7 @@ dependencies:
   equatable: ^2.0.5
   freezed: ^2.5.2
   intl: ^0.19.0
+  http: ^1.2.2
 
 dev_dependencies:
   flutter_test:
@@ -31,6 +32,8 @@ dev_dependencies:
   build_runner: ^2.3.3
   injectable_generator: ^2.1.6
   json_serializable: ^6.6.2
+  mockito: ^5.4.4
+  mocktail: ^1.0.4
 
 
 # For information on the generic Dart part of this file, see the
